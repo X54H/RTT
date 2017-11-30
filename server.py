@@ -7,9 +7,9 @@ parser = argparse.ArgumentParser(description="Launch server.")
 parser.add_argument('type', metavar='TYPE',
                     choices=['TCP', 'UDP'],
                     help='Choose between TCP or UDP for transmissions.')
-parser.add_argument('port', metavar='PORT',
-                    type=int,
-                    help='Set port to use.')
+parser.add_argument('host', metavar='HOST',
+                    type=str,
+                    help='Set host to use.')
 
 parser.add_argument('port', metavar='PORT',
                     type=int,
