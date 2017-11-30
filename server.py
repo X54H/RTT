@@ -11,8 +11,12 @@ parser.add_argument('port', metavar='PORT',
                     type=int,
                     help='Set port to use.')
 
+parser.add_argument('port', metavar='PORT',
+                    type=int,
+                    help='Set port to use.')
+
 args = parser.parse_args()
 
 server = mysocket.serversocket(type=utils.type_map[args.type],
-                               port=args.port)
+                               port=args.port, host=args.host)
 server.activate()

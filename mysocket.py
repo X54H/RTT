@@ -28,9 +28,10 @@ class mysocket(socket.socket):
     """A subclass of socket adding methods for TCP and UDP performance testing.
     Not intended to be used by itself, but through its subclasses serversocket
     and clientsocket."""
-    def __init__(self, port=8888, udp_timeout=1.0, *args, **kwargs):
+    def __init__(self, port=8888, host="", udp_timeout=1.0, *args, **kwargs):
         super(mysocket, self).__init__(*args, **kwargs)
         self.port = port
+        self.host = host
         if self.is_udp():
             self.settimeout(udp_timeout)
     
@@ -103,7 +104,7 @@ class serversocket(mysocket):
     """A subclass of mysocket for server-side network performance testing"""
     def __init__(self, *args, **kwargs):
         super(serversocket, self).__init__(*args, **kwargs)
-        self.host = socket.gethostname()
+
 
     def accept(self):
         """accept() -> (socket object, address info)
